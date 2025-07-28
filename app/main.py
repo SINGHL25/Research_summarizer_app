@@ -1,5 +1,13 @@
 ### research_summarizer_app/app/main.py
 
+### research_summarizer_app/app/main.py
+
+import sys
+import os
+
+# Add the parent directory (project root) to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import streamlit as st
 from app.components import uploader, summary_view, qa_view, keyword_view
 

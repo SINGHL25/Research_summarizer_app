@@ -1,7 +1,7 @@
 ### research_summarizer_app/app/components/summary_view.py
 
 import streamlit as st
-from backend.ai_model.summarizer import generate_summary
+from backened.ai_model.summarizer import generate_summary
 
 def display_summary(text):
     st.header("🔍 Summary")

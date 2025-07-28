@@ -10,6 +10,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import streamlit as st
 from app.components import uploader, summary_view, qa_view, keyword_view
+from backend.ai_model import summarizer
+from backend.utils import pdf_reader
+from app.components import uploader, summary_view, qa_view, keyword_view
+
 
 st.set_page_config(page_title="AI Research Summarizer", layout="wide")
 st.title("📚 AI-Powered Research Paper Summarizer")

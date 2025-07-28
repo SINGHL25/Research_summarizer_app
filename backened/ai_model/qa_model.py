@@ -1,6 +1,8 @@
 ### research_summarizer_app/backend/ai_model/qa_model.py
 
 from transformers import pipeline
+import torch
+
 qa_pipeline = pipeline("question-answering")
 
 def answer_question(context, question):

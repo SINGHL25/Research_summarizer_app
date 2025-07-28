@@ -1,18 +1,10 @@
 import streamlit as st
-import fitz  # PyMuPDF
+from backened.utils.pdf_reader import extract_text_from_pdf
 
 def upload_pdf():
-    uploaded_file = st.file_uploader("📤 Upload Research Paper (PDF)", type="pdf")
-
-    if uploaded_file is not None:
-        try:
-            with fitz.open(stream=uploaded_file.read(), filetype="pdf") as doc:
-                text = ""
-                for page in doc:
-                    text += page.get_text()
-            st.success("✅ PDF successfully uploaded and text extracted.")
+    uploaded_file = st.file_uploader("Upload a PDF", type=["pdf"])
+    if uploaded_file:
+        with st.spinner("Extracting text from PDF..."):
+            text = extract_text_from_pdf(uploaded_file)
             return text
-        except Exception as e:
-            st.error(f"❌ Failed to process PDF: {e}")
-            return None
     return None

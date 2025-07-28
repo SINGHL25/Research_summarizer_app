@@ -2,6 +2,8 @@
 
 from collections import Counter
 import re
+import torch
+
 
 def extract_keywords(text, top_k=10):
     words = re.findall(r'\b\w+\b', text.lower())

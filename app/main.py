@@ -28,7 +28,7 @@ if pdf_text:
 ### research_summarizer_app/app/components/uploader.py
 
 import streamlit as st
-from backend.utils.pdf_reader import extract_text_from_pdf
+from backened.utils.pdf_reader import extract_text_from_pdf
 
 def upload_pdf():
     uploaded_file = st.file_uploader("Upload a PDF", type=["pdf"])

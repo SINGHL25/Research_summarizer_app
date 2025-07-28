@@ -1,7 +1,7 @@
 ### research_summarizer_app/app/components/keyword_view.py
 
 import streamlit as st
-from backend.ai_model.keyword_extractor import extract_keywords
+from backened.ai_model.keyword_extractor import extract_keywords
 
 def display_keywords(text):
     st.header("🔑 Keywords")

@@ -17,3 +17,17 @@ cd research_summarizer_app
 pip install -r requirements.txt
 streamlit run app/main.py
 ```
+app/
+  main.py
+  components/
+    uploader.py
+    summary_view.py
+    qa_view.py
+    keyword_view.py
+backend/
+  ai_model/
+    summarizer.py
+    qa_model.py
+    keyword_extractor.py
+  utils/
+    pdf_reader.py

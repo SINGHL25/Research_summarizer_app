@@ -9,6 +9,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import streamlit as st
 
+
+
 from backened.ai_model.summarizer import load_summarizer
 from backened.utils import pdf_reader
 from app.components import uploader, summary_view, qa_view, keyword_view
@@ -16,8 +18,13 @@ from app.components import uploader, summary_view, qa_view, keyword_view
 st.set_page_config(page_title="AI Research Summarizer", layout="wide")
 st.title("📚 AI-Powered Research Paper Summarizer")
 
-# Load summarizer model (cached)
-summarizer = load_summarizer()
+from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
+
+def load_local_summarizer():
+    model_path = "backened/ai_model/distilbart_model"
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
+    return pipeline("summarization", model=model, tokenizer=tokenizer)
 
 pdf_text = uploader.upload_pdf()
 
